@@ -1,0 +1,19 @@
+server:
+  port: 8071
+
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: git
+  cloud:
+    config:
+      server:
+        bootstrap: true
+        git:
+          uri: https://github.com/Codersauruse/bus-config.git
+          username: ${GIT_USERNAME}
+          password: ${GIT_PASSWORD}
+          default-label: main
+          search-paths: timetable-service
+          clone-on-start: true
